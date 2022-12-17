@@ -1,0 +1,15 @@
+---
+- name: Manage Azure subnets
+  azure.azcollection.azure_rm_subnet:
+    resource_group: "{{ item.resource_group }}"
+    virtual_network_name: "{{ item.virtual_network_name }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    address_prefix_cidr: "{{ item.address_prefix_cidr | default(omit) }}"
+    delegations: "{{ item.delegations | default(omit) }}"
+    private_endpoint_network_policies: "{{ item.private_endpoint_network_policies | default('Enabled') }}"
+    private_link_service_network_policies: "{{ item.private_link_service_network_policies | default('Enabled') }}"
+    route_table: "{{ item.route_table | default(omit) }}"
+    security_group: "{{ item.security_group | default(omit) }}"
+    service_endpoints: "{{ item.service_endpoints | default(omit) }}"
+  loop: "{{ az_subnets }}"

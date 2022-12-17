@@ -1,0 +1,11 @@
+---
+- name: Manage Azure route tables
+  azure.azcollection.azure_rm_routetable:
+    resource_group: "{{ item.resource_group }}"
+    name: "{{ item.name }}"
+    location: "{{ item.location | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    append_tags: "{{ item.append_tags | default(true) }}"
+    disable_bgp_route_propagation: "{{ item.disable_bgp_route_propagation | default(false) }}"
+  loop: "{{ az_route_tables }}"

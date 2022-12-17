@@ -1,0 +1,16 @@
+---
+- name: Manage Azure public IP addresses
+  azure.azcollection.azure_rm_publicipaddress:
+    resource_group: "{{ item.resource_group }}"
+    name: "{{ item.name }}"
+    location: "{{ item.location | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    append_tags: "{{ item.append_tags | default(true) }}"
+    allocation_method: "{{ item.allocation_method | default('static') }}"
+    domain_name: "{{ item.domain_name | default(omit) }}"
+    idle_timeout: "{{ item.idle_timeout | default(4) }}"
+    ip_tags: "{{ item.ip_tags | default(omit) }}"
+    sku: "{{ item.sku | default('standard') }}"
+    version: "{{ item.version | default('ipv4') }}"
+  loop: "{{ az_public_ips }}"

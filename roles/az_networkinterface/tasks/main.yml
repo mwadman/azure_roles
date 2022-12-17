@@ -1,0 +1,20 @@
+---
+- name: Manage Azure network interfaces
+  azure.azcollection.azure_rm_networkinterface:
+    resource_group: "{{ item.resource_group }}"
+    virtual_network: "{{ item.virtual_network }}"
+    subnet_name: "{{ item.subnet_name }}"
+    name: "{{ item.name }}"
+    location: "{{ item.location | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    append_tags: "{{ item.append_tags | default(true) }}"
+    create_with_security_group: "{{ item.create_with_security_group | default(true) }}"
+    dns_servers: "{{ item.dns_servers | default(omit) }}"
+    enable_accelerated_networking: "{{ item.enable_accelerated_networking | default(false) }}"
+    enable_ip_forwarding: "{{ item.enable_ip_forwarding | default(false) }}"
+    ip_configurations: "{{ item.ip_configurations | default(omit) }}"
+    open_ports: "{{ item.open_ports | default(omit) }}"
+    os_type: "{{ item.os_type | default('Linux') }}"
+    security_group: "{{ item.security_group | default(omit) }}"
+  loop: "{{ az_network_interfaces }}"

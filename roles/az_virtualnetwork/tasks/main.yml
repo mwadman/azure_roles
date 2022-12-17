@@ -1,0 +1,14 @@
+---
+- name: Manage Azure virtual networks
+  azure.azcollection.azure_rm_virtualnetwork:
+    resource_group: "{{ item.resource_group }}"
+    name: "{{ item.name }}"
+    location: "{{ item.location | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    append_tags: "{{ item.append_tags | default(true) }}"
+    address_prefixes_cidr: "{{ item.address_prefixes_cidr | default(omit) }}"
+    purge_address_prefixes: "{{ item.purge_address_prefixes | default(false) }}"
+    dns_servers: "{{ item.dns_servers | default(omit) }}"
+    purge_dns_servers: "{{ item.purge_dns_servers | default(false) }}"
+  loop: "{{ az_virtual_networks }}"

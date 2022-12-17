@@ -1,0 +1,10 @@
+---
+- name: Manage Azure resource groups
+  azure.azcollection.azure_rm_resourcegroup:
+    name: "{{ item.name }}"
+    location: "{{ item.location }}"
+    state: "{{ item.state | default('present') }}"
+    tags: "{{ item.tags | default(omit) }}"
+    append_tags: "{{ item.append_tags | default(true) }}"
+    force_delete_nonempty: "{{ item.force_delete_nonempty | default(false) }}"
+  loop: "{{ az_resource_groups }}"

@@ -1,0 +1,11 @@
+galaxy_info:
+  author: Michael Wadman
+  description: Creates, updates and deletes route tables in Azure.
+  license: "MIT"
+  min_ansible_version: 2.9
+  cloud_platforms:
+    - azure
+  galaxy_tags:
+    - "azure"
+    - "cloud"
+dependencies: []
