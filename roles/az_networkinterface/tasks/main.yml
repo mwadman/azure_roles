@@ -13,7 +13,7 @@
     dns_servers: "{{ item.dns_servers | default(omit) }}"
     enable_accelerated_networking: "{{ item.enable_accelerated_networking | default(false) }}"
     enable_ip_forwarding: "{{ item.enable_ip_forwarding | default(false) }}"
-    ip_configurations: "{{ item.ip_configurations | default(omit) }}"
+    ip_configurations: "{{ item.ip_configurations | default(omit) }}" # noqa args[module]
     open_ports: "{{ item.open_ports | default(omit) }}"
     os_type: "{{ item.os_type | default('Linux') }}"
     security_group: "{{ item.security_group | default(omit) }}"

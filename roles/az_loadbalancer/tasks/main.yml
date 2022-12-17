@@ -7,13 +7,14 @@
     state: "{{ item.state | default('present') }}"
     tags: "{{ item.tags | default(omit) }}"
     append_tags: "{{ item.append_tags | default(true) }}"
-    backend_address_pools: "{{ item.backend_address_pools if ((item.state is defined and item.state == 'present') or item.state is not defined) else omit }}"
-    frontend_ip_configurations: "{{ item.frontend_ip_configurations if ((item.state is defined and item.state == 'present')
-                                                                    or item.state is not defined)
-                                                                    else omit }}"
-    inbound_nat_pools: "{{ item.inbound_nat_pools | default(omit) }}"
-    inbound_nat_rules: "{{ item.inbound_nat_rules | default(omit) }}"
-    load_balancing_rules: "{{ item.load_balancing_rules if ((item.state is defined and item.state == 'present') or item.state is not defined) else omit }}"
-    probes: "{{ item.probes if ((item.state is defined and item.state == 'present') or item.state is not defined) else omit }}"
+    backend_address_pools: "{{ item.backend_address_pools if ((item.state is defined and item.state == 'present') or item.state is not defined)
+                                                          else omit }}" # noqa args[module]
+    frontend_ip_configurations: "{{ item.frontend_ip_configurations if ((item.state is defined and item.state == 'present') or item.state is not defined)
+                                                                    else omit }}" # noqa args[module]
+    inbound_nat_pools: "{{ item.inbound_nat_pools | default(omit) }}" # noqa args[module]
+    inbound_nat_rules: "{{ item.inbound_nat_rules | default(omit) }}" # noqa args[module]
+    load_balancing_rules: "{{ item.load_balancing_rules if ((item.state is defined and item.state == 'present') or item.state is not defined)
+                                                        else omit }}" # noqa args[module]
+    probes: "{{ item.probes if ((item.state is defined and item.state == 'present') or item.state is not defined) else omit }}" # noqa args[module]
     sku: "{{ item.sku | default('Standard') }}"
   loop: "{{ az_load_balancers }}"

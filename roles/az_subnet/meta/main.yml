@@ -2,10 +2,12 @@ galaxy_info:
   author: Michael Wadman
   description: Creates, updates and deletes subnets in Azure.
   license: "MIT"
-  min_ansible_version: 2.9
-  cloud_platforms:
-    - azure
+  min_ansible_version: "2.9"
   galaxy_tags:
     - "azure"
     - "cloud"
+  platforms:
+    - name: GenericLinux
+      versions:
+        - all
 dependencies: []

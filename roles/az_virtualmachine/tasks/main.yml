@@ -11,8 +11,8 @@
     admin_username: "{{ item.admin_username if ((item.state is defined and item.state == 'present') or item.state is not defined) else omit }}"
     admin_password: "{{ item.admin_password if ((item.state is defined and item.state == 'present') or item.state is not defined)
                                               and ((item.os_type is defined and item.os_type == 'Windows')
-                                              or (((item.os_type is defined and item.os_type == 'Linux') or item.os_type is not defined)
-                                                and (item.ssh_password_enabled is defined and item.ssh_password_enabled)))
+                                            or (((item.os_type is defined and item.os_type == 'Linux') or item.os_type is not defined)
+                                              and (item.ssh_password_enabled is defined and item.ssh_password_enabled)))
                                             else omit }}"
     allocated: "{{ item.allocated | default(true) }}"
     availability_set: "{{ item.availability_set | default(omit) }}"

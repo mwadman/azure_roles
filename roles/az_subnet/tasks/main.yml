@@ -6,10 +6,10 @@
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
     address_prefix_cidr: "{{ item.address_prefix_cidr | default(omit) }}"
-    delegations: "{{ item.delegations | default(omit) }}"
+    delegations: "{{ item.delegations | default(omit) }}" # noqa args[module]
     private_endpoint_network_policies: "{{ item.private_endpoint_network_policies | default('Enabled') }}"
     private_link_service_network_policies: "{{ item.private_link_service_network_policies | default('Enabled') }}"
     route_table: "{{ item.route_table | default(omit) }}"
     security_group: "{{ item.security_group | default(omit) }}"
-    service_endpoints: "{{ item.service_endpoints | default(omit) }}"
+    service_endpoints: "{{ item.service_endpoints | default(omit) }}" # noqa args[module]
   loop: "{{ az_subnets }}"

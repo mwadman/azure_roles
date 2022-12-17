@@ -10,7 +10,7 @@
     allocation_method: "{{ item.allocation_method | default('static') }}"
     domain_name: "{{ item.domain_name | default(omit) }}"
     idle_timeout: "{{ item.idle_timeout | default(4) }}"
-    ip_tags: "{{ item.ip_tags | default(omit) }}"
+    ip_tags: "{{ item.ip_tags | default(omit) }}" # noqa args[module]
     sku: "{{ item.sku | default('standard') }}"
     version: "{{ item.version | default('ipv4') }}"
   loop: "{{ az_public_ips }}"

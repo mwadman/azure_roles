@@ -16,7 +16,7 @@ readme: README.md
 # A list of the collection's content authors. Can be just the name or in the format 'Full Name <email> (url)
 # @nicks:irc/im.site#channel'
 authors:
-- Michael Wadman <michael@wadman.co.nz> (wadman.co.nz)
+  - Michael Wadman <michael@wadman.co.nz> (wadman.co.nz)
 
 
 ### OPTIONAL but strongly recommended
@@ -26,11 +26,11 @@ description: Roles for deploying Azure resources using the official Azure module
 # Either a single license or a list of licenses for content inside of a collection. Ansible Galaxy currently only
 # accepts L(SPDX,https://spdx.org/licenses/) licenses. This key is mutually exclusive with 'license_file'
 license:
-- MIT
+  - MIT
 
 # The path to the license file for the collection. This path is relative to the root of the collection. This key is
 # mutually exclusive with 'license'
-##license_file: ''
+# license_file: ''
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
@@ -53,7 +53,7 @@ dependencies:
 repository: https://github.com/mwadman/azure_roles
 
 # The URL to any online docs
-##documentation: http://docs.example.com
+# documentation: http://docs.example.com
 
 # The URL to the homepage of the collection/project
 homepage: https://wadman.co.nz
@@ -65,7 +65,7 @@ issues: https://github.com/mwadman/azure_roles/issues
 # artifact. A pattern is matched from the relative path of the file or directory of the collection directory. This
 # uses 'fnmatch' to match the files or directories. Some directories and files like 'galaxy.yml', '*.pyc', '*.retry',
 # and '.git' are always filtered. Mutually exclusive with 'manifest'
-##build_ignore: []
+# build_ignore: []
 
 # A dict controlling use of manifest directives used in building the collection artifact. The key 'directives' is a
 # list of MANIFEST.in style

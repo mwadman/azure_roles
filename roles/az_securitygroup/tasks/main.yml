@@ -9,6 +9,6 @@
     append_tags: "{{ item.append_tags | default(true) }}"
     default_rules: "{{ item.default_rules | default(omit) }}"
     purge_default_rules: "{{ item.purge_default_rules | default(false) }}"
-    rules: "{{ item.rules | default(omit) }}"
+    rules: "{{ item.rules | default(omit) }}" # noqa args[module]
     purge_rules: "{{ item.purge_rules | default(false) }}"
   loop: "{{ az_network_security_groups }}"
