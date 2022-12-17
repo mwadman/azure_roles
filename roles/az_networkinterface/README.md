@@ -56,7 +56,8 @@ az_network_interfaces:
         primary: true
         public_ip_address_name: "pip-example3"
         load_balancer_backend_address_pools:
-          - "bap-example3"
+          - load_balancer: "lbe-example1"
+            name: "bap-example1"
     open_ports:
       - 22
       - 3389
