@@ -46,7 +46,8 @@ tags:
 # collection label 'namespace.name'. The value is a version range
 # L(specifiers,https://python-semanticversion.readthedocs.io/en/latest/#requirement-specification). Multiple version
 # range specifiers can be set and are separated by ','
-dependencies: {azure.azcollection}
+dependencies:
+  azure.azcollection: ">=1.14.0"
 
 # The URL of the originating SCM repository
 repository: https://github.com/mwadman/azure_roles
